@@ -1,1 +1,64 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+    margin: 0;
+    padding: 0;
+}
+
+
+form .input-field {
+    display: flex;
+    width: calc(100%/2);
+    flex-direction: column;
+    margin: 20px 0 12px 0;
+    padding: 0 0 0 10px;
+}
+
+.input-field label {
+    font-size: 12px;
+    font-weight: 500;
+    color: #2e2e2e;
+}
+
+.input-field input {
+    height: 42px;
+    margin: 8px 0;
+    outline: none;
+    font-size: 14px;
+}
+
+.title-header {
+    font-size: 25px;
+    font-weight: 500;
+    position: relative;
+}
+
+
+.button-field {
+    font-size: 12px;
+    font-weight: 500;
+    background-color: gray;
+    color: white;
+    height: 5vh;
+    width: 50%;
+}
+
+.login-container {
+    background-color: white;
+    padding: 25px 30px;
+    max-width: 700px;
+    border-radius: 5px;
+    width: 100%;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.login-container form .login-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.login-container form .button-info {
+    display: flex;
+    align-items: center;
+}

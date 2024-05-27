@@ -1,0 +1,33 @@
+TODO
+
+GENERAL:
+[t] implement bootstrap
+
+[] regex login password? ??
+[T] ostali validatori! 
+[] dodavanje slike na login formu
+[] enkripcija lozinke pri slanju
+
+LOGIN:
+- sta se desi ako je vec postojece ime u bazi? kako to da handlujem?
+- u kom formatu je fajl u formdata? kako to da dodam u bazu? what??
+
+SERVICES:
+[T] register
+
+CONTROLLERS:
+[T] register
+
+DB CLASS:
+[T] user (register, login, forgotpass, profile)
+
+CLASSES TS:
+[T] Korisnik
+[T] Korisnik new
+
+CLASSES JAVA:
+
+
+DATABASE:
+[T] Korisnik
+[] dodati zastitu u samu bazu, za gender ili username itd.

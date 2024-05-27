@@ -10,10 +10,10 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 public class DB {
 
     @Bean
-    public static DataSource source(){
+    public static DataSource source() {
         DriverManagerDataSource ds = new DriverManagerDataSource();
         ds.setDriverClassName("com.mysql.cj.jdbc.Driver");
-        ds.setUrl("jdbc:mysql://localhost:3306/prijave");
+        ds.setUrl("jdbc:mysql://localhost:3306/projekat2024");
         ds.setUsername("root");
         ds.setPassword("");
 

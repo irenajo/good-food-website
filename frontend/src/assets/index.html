@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Form</title>
+    <title>Registration Form</title>
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
@@ -16,8 +16,8 @@
             height: 100vh;
         }
 
-        /* Style the login form */
-        .login-form {
+        /* Style the registration form */
+        .registration-form {
             background-color: #f8f9fa;
             /* Light gray background */
             border-radius: 10px;
@@ -28,46 +28,43 @@
             /* Increased padding around the form */
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
             /* Increased box shadow */
+            max-width: 600px;
+            /* Set maximum width for the form */
+            width: 100%;
+            /* Make the form take up the full width */
         }
 
         /* Larger font size for form elements */
-        .login-form label,
-        .login-form input[type="text"],
-        .login-form input[type="password"],
-        .login-form button,
-        .login-form a {
+        .registration-form label,
+        .registration-form input[type="text"],
+        .registration-form input[type="password"],
+        .registration-form button {
             font-size: 18px;
             /* Increased font size */
         }
 
         /* Add margin between form elements */
-        .login-form .form-group {
+        .registration-form .form-group {
             margin-bottom: 20px;
             /* Increased margin */
         }
 
         /* Larger padding for the submit button */
-        .login-form button[type="submit"] {
-            padding: 12px 20px;
+        .registration-form button[type="submit"] {
+            padding: 12px 0;
             /* Increased padding */
+            width: 100%;
+            /* Make the button take up the whole width */
         }
 
-        /* Error message style */
-        .error-message {
-            color: #dc3545;
-            /* Red color */
+        /* Image upload message style */
+        .image-upload-message {
             font-size: 16px;
             /* Font size */
             margin-top: 10px;
-            /* Margin from the submit button */
-        }
-
-        /* Registration link style */
-        .registration-link {
-            font-size: 16px;
-            /* Font size */
-            margin-top: 10px;
-            /* Margin from the error message */
+            /* Margin from the file upload */
+            text-align: center;
+            /* Center align the message */
         }
     </style>
 </head>
@@ -77,26 +74,27 @@
     <div class="container">
         <div class="row center">
             <div class="col-md-6">
-                <form class="login-form">
+                <form class="registration-form">
                     <div class="form-group">
                         <label for="username">Username</label>
-                        <input type="text" class="form-control" id="username" placeholder="Enter username"
-                            [(ngModel)]="user.username">
+                        <input type="text" class="form-control" id="username" placeholder="Enter username">
                     </div>
                     <div class="form-group">
                         <label for="password">Password</label>
-                        <input type="password" class="form-control" id="password" placeholder="Enter password"
-                            [(ngModel)]="user.password">
+                        <input type="password" class="form-control" id="password" placeholder="Enter password">
                     </div>
-                    <button type="submit" class="btn btn-primary btn-block" (click)="onSubmit()">Submit</button>
-                    <div class="error-message text-center" style="color: red"> {{errorMessage}} </div>
-                    <!-- Error message area -->
-                    <div class="text-center mt-3">
-                        <a href="#">Forgot password?</a>
+                    <div class="form-group">
+                        <label for="creditCard">Credit Card</label>
+                        <input type="text" class="form-control" id="creditCard"
+                            placeholder="Enter credit card information">
                     </div>
-                    <div class="registration-link text-center mt-3">
-                        <a routerLink="/register">Don't have an account? Register here</a>
+                    <div class="form-group">
+                        <label for="imageUpload">Upload Image</label>
+                        <input type="file" class="form-control-file" id="imageUpload" accept="image/png, image/jpeg">
                     </div>
+                    <div class="image-upload-message">Only JPG/PNG formats are supported. Minimum size is 100x100px and
+                        maximum size is 300x300px.</div>
+                    <button type="submit" class="btn btn-primary">Register</button>
                 </form>
             </div>
         </div>
@@ -106,4 +104,4 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 
-</html>
+</html> 

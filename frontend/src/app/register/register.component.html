@@ -4,89 +4,129 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kutak dobre hrane</title>
+    <title>Register</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .register-container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+        }
+    </style>
 </head>
 
 <body>
-    <div class="login-container">
-        <form>
-            <div class="title-header"> Korisnicki podaci </div>
-            <div class="login-info">
-                <div class="input-field">
-                    <label for="username"> Korisnicko ime: </label>
-                    <input type="text" id="username" placeholder="korisnik123"> <br>
-                    <span class="detail"> Mora biti izmedju 3 i 10 karaktera.</span>
+    <div class="container">
+        <div class="register-container">
+            <h2 class="text-center">Register</h2>
+            <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)" novalidate>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="username">Username</label>
+                        <input type="text" class="form-control" id="username" placeholder="Username"
+                            [(ngModel)]="myUser.username" name="username" required>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control" id="password" placeholder="Password"
+                            [(ngModel)]="myUser.password" name="password" required pattern="">
+                    </div>
                 </div>
-
-                <div class="input-field">
-                    <label for="password"> Lozinka </label>
-                    <input type="password" id="password"> <br>
-                    <span class="detail"> Mora biti izmedju 3 i 10 karaktera.</span>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="question">Security Question</label>
+                        <input type="text" class="form-control" id="question" placeholder="Security Question"
+                            [(ngModel)]="myUser.question" name="question">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="answer">Answer</label>
+                        <input type="text" class="form-control" id="answer" placeholder="Answer"
+                            [(ngModel)]="myUser.answer" name="answer">
+                    </div>
                 </div>
-                <div class="input-field">
-                    <label for="question"> Bezbednosno pitanje </label>
-                    <input type="text" id="question" placeholder="Koje je ime mog prvog kucnog ljubimca?"> <br>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="name">First Name</label>
+                        <input type="text" class="form-control" id="name" placeholder="First Name"
+                            [(ngModel)]="myUser.name" name="name">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="lastname">Last Name</label>
+                        <input type="text" class="form-control" id="lastname" placeholder="Last Name"
+                            [(ngModel)]="myUser.lastname" name="lastname">
+                    </div>
                 </div>
-                <div class="input-field">
-                    <label for="answer"> Odgovor </label>
-                    <input type="text" id="answer" placeholder="Sapica"> <br>
+                <div class="form-row">
+                    <div class="form-group col-md-12">
+                        <label for="gender">Gender</label><br>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="gender" id="genderMale"
+                                [(ngModel)]="myUser.gender" value="male">
+                            <label class="form-check-label" for="genderMale">Male</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="gender" id="genderFemale"
+                                [(ngModel)]="myUser.gender" value="female">
+                            <label class="form-check-label" for="genderFemale">Female</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="gender" id="genderOther"
+                                [(ngModel)]="myUser.gender" value="other">
+                            <label class="form-check-label" for="genderOther">Other</label>
+                        </div>
+                    </div>
                 </div>
-            </div>
-
-            <div class="title-header">Licni podaci</div>
-            <div class="personal-info">
-                <div class="input-field">
-                    <label for="name"> Ime: </label>
-                    <input type="text" id="name"> <br>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="address">Address</label>
+                        <input type="text" class="form-control" id="address" placeholder="Address"
+                            [(ngModel)]="myUser.address" name="address">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="phone">Phone</label>
+                        <input type="text" class="form-control" id="phone" placeholder="Phone"
+                            [(ngModel)]="myUser.phone" name="phone">
+                    </div>
                 </div>
-
-                <div class="input-field">
-                    <label for="lastname"> Prezime: </label>
-                    <input type="text" id="lastname"> <br>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="mail">Email</label>
+                        <input type="email" class="form-control" id="mail" placeholder="Email" [(ngModel)]="myUser.mail"
+                            name="mail" required email>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="image">Profile Image URL</label>
+                        <input type="text" class="form-control" id="image" placeholder="Profile Image URL"
+                            [(ngModel)]="myUser.image" name="image">
+                    </div>
                 </div>
-            </div>
-            <div class="input-field">
-                <div class="gender-info">
-                    <div class="title-head">Pol:</div><br>
-                    <input type="radio" name="gender" value="musko" id="m">
-                    <label for="m">Musko </label>
-
-                    <input type="radio" name="gender" value="zensko" id="z">
-                    <label for="z">Zensko </label>
-
-                    <input type="radio" name="gender" value="evrovizijski izvodjac" id="e">
-                    <label for="e">Evrovizijski izvodjac </label>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="c_card">Credit Card</label>
+                        <input type="text" class="form-control" id="c_card" placeholder="Credit Card"
+                            [(ngModel)]="myUser.c_card" name="c_card">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="imageUpload">Upload JPG/PNG Image (100x100 - 300x300px)</label>
+                        <input type="file" class="form-control-file" id="imageUpload" accept="image/png, image/jpeg"
+                            (change)="getFile($event)">
+                    </div>
                 </div>
-            </div>
-
-            <div class="title-header"> Kontakt informacije </div>
-            <div class="payment-info">
-
-                <div class="input-field">
-                    <label for="email"> Email: </label>
-                    <input type="text" id="email"> <br>
+                <button type="submit" class="btn btn-primary">Register</button>
+                <div class="error-message text-center" style="color: red"> {{errorMessage}} </div>
+                <div class="registration-link text-center mt-3">
+                    <a routerLink="/login">Already have an account?</a>
                 </div>
-
-                <div class="input-field">
-                    <label for="phone"> Broj telefona: </label>
-                    <input type="text" id="phone"> <br>
-                </div>
-
-                <div class="input-field">
-                    <label for="phone"> Adresa: </label>
-                    <input type="text" id="phone"> <br>
-                </div>
-
-                <div class="input-field">
-                    <label for="phone"> Broj kreditne kartice: </label>
-                    <input type="text" id="phone"> <br>
-                </div>
-
-            </div>
-
-        </form>
+            </form>
+        </div>
     </div>
 
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 
 </html>
