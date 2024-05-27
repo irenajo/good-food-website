@@ -10,12 +10,12 @@ import { RegisterService } from '../services/register.service';
 })
 export class RegisterComponent {
 
-
   myUser: User = new User();
   errorMessage: string = "test";
   file?: File;
 
-  constructor(private registerService: RegisterService) { }
+  constructor(private registerService: RegisterService) {
+  }
 
   onSubmit(form: NgForm) {
 

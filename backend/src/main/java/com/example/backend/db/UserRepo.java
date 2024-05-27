@@ -1,6 +1,5 @@
 package com.example.backend.db;
 
-import java.net.MalformedURLException;
 import java.nio.file.FileAlreadyExistsException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -10,7 +9,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import org.springframework.core.io.UrlResource;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.example.backend.models.User;
