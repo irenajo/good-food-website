@@ -1,0 +1,18 @@
+.navbar-nav.w-60 {
+    width: 60%;
+  }
+  
+  .nav-link {
+    color: #007bff !important; /* Bootstrap primary color */
+    font-weight: 500;
+  }
+  
+  .nav-link:hover {
+    color: #0056b3 !important; /* Bootstrap primary hover color */
+  }
+  
+  .container-fluid {
+    padding-left: 15%;
+    padding-right: 15%;
+  }
+  

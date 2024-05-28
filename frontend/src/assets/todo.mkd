@@ -1,5 +1,11 @@
 TODO
 
+restaurants-all:
+	- napraviti da link ime restorana nekako vodi na stranicu restorana!
+	- dodati trenutno ulogovanog korisnika (localStorage)
+	- dodati ngIf za prikazivanje zvezdica restorana, ako je neki korisnik ulogovan.
+
+
 GENERAL:
 [t] implement bootstrap
 

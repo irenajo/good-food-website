@@ -16,6 +16,6 @@ export class LoginService {
       username: username,
       password: password,
     };
-    return this.http.post<UserLogin>(`${this.url}/login`, data);
+    return this.http.post<UserLogin>(`${this.url}/login`, data); 
   }
 }

@@ -18,12 +18,13 @@ export class RegisterComponent {
   }
 
   onSubmit(form: NgForm) {
-
+    this.registerService.hello();
     if (this.file) {
       //OBSERVABLE, NAPRAVI DA OSLUSKUJE !!!!! i da vrati potvrdu kad zavrsi.
       let upload = this.registerService.uploadImage(this.myUser.username, this.file);
-      let reg = this.registerService.register(this.myUser, this.file)
 
+        alert(upload)
+      //let reg = this.registerService.register(this.myUser, this.file)
     }
     else {
     }

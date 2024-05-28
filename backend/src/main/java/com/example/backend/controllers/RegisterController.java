@@ -1,5 +1,7 @@
 package com.example.backend.controllers;
 
+import java.util.Map;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -19,7 +21,7 @@ import com.example.backend.models.UserLogin;
 
 @RestController
 @RequestMapping("/register")
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "http://localhost:8080")
 public class RegisterController {
     private UserRepo userRepo = new UserRepo();
 
@@ -35,23 +37,28 @@ public class RegisterController {
         return userRepo.register(user);
     }
 
+    // @PostMapping("/hello")
+    // public void postMethodName(@RequestParam("username") String username) {
+    //     System.out.println("hello");
+    //     // TODO: test
+    //     return;
+    // }
+
     @PostMapping("/hello")
-    public void postMethodName() {
-        System.out.println("hello");
-        // TODO: process POST request
-
-        return;
-    }
-
+    public void postMethodName(@RequestBody Map<String, String> payload) {
+    String username = payload.get("username");
+    System.out.println("hello " + username);
+    // TODO: test
+}
     // @RequestParam("username") String username,
     @PostMapping("/uploadImage")
-    public ResponseEntity<ResponseMessage> handleFileUpload(
+    public ResponseEntity<ResponseMessage> handleFileUpload(@RequestParam("username") String username,
             @RequestParam("profilePicture") MultipartFile file) {
         String message = "";
         System.out.println("print1");
         try {
             System.out.println("print2");
-            userRepo.handleFileUpload(file); // username,
+            userRepo.handleFileUpload(username, file); // username,
             message = "Uploaded the file successfully: " + file.getOriginalFilename();
             return ResponseEntity.status(HttpStatus.OK).body(new ResponseMessage(message));
         } catch (Exception e) {

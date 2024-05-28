@@ -119,10 +119,18 @@ public class UserRepo {
         return null;
     }
 
-    public Boolean handleFileUpload(MultipartFile file) { // String username,
-        System.out.println(file);
-        try {
-            Files.copy(file.getInputStream(), this.root.resolve(file.getOriginalFilename()));
+    //Maybe make this private, so nobody can just upload files at will to an unexisting account.
+    public Boolean handleFileUpload(String username, MultipartFile file) { 
+        int queryReturn = 0;
+        String query = "insert into images(username,path) values(?,?)";
+        Path relativePath = this.root.resolve(file.getOriginalFilename());
+
+        try (Connection conn = DB.source().getConnection();
+        PreparedStatement stmt = conn.prepareStatement(query)){
+            Files.copy(file.getInputStream(), relativePath);
+            stmt.setString(1, username);
+            stmt.setString(2, relativePath.toString());
+            queryReturn = stmt.executeUpdate();
         } catch (Exception e) {
             if (e instanceof FileAlreadyExistsException) {
                 System.out.println("err");
@@ -130,8 +138,8 @@ public class UserRepo {
             }
             throw new RuntimeException(e.getMessage());
         }
-        System.out.println("uspesno");
-        return true;
+        System.out.println("kraj");
+        return queryReturn > 0;
     }
 
     // public Resource load(String filename) {

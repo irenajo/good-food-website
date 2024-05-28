@@ -1,0 +1,44 @@
+<app-user-navbar></app-user-navbar>
+
+<!-- stats -->
+<div class="container my-5">
+    <div class="row">
+      <div class="col">
+        <h2>General Information</h2>
+        <p>Total Restaurants: {{ stats.totalRestaurants }}</p>
+        <p>Total Registered Guests: {{ stats.totalGuests }}</p>
+        <p>Reservations in Last 24 Hours: {{ stats.reservations.last24Hours }}</p>
+        <p>Reservations in Last 7 Days: {{ stats.reservations.last7Days }}</p>
+        <p>Reservations in Last 30 Days: {{ stats.reservations.last30Days }}</p>
+      </div>
+    </div>
+  </div>
+  
+<!-- restaurants -->
+
+<div class="container my-5">
+    <div class="row">
+      <div class="col">
+        <h2>Restaurant List</h2>
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" placeholder="Search" [(ngModel)]="searchTerm">
+          <button class="btn btn-outline-secondary" type="button" (click)="search()">Search</button>
+        </div>
+        <div class="restaurant-list">
+          <div class="restaurant-item" *ngFor="let restaurant of restaurants; let i = index" (click)="restaurantCheckOut(i)">
+            <div class="restaurant-name">{{ restaurant.name }}</div> 
+            <div class="restaurant-address">{{ restaurant.address }}</div>
+            <div class="restaurant-type">{{ restaurant.type }}</div>
+            <div class="restaurant-waiters">
+              <ul>
+                <li *ngFor="let waiter of restaurant.waiters">
+                  {{ waiter.firstName }} {{ waiter.lastName }}
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
