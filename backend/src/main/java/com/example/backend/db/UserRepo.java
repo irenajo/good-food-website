@@ -1,5 +1,6 @@
 package com.example.backend.db;
 
+import java.io.IOException;
 import java.nio.file.FileAlreadyExistsException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -18,6 +19,18 @@ import jakarta.annotation.Resource;
 
 public class UserRepo {
     private final Path root = Paths.get("uploads");
+
+    public UserRepo() {
+        init();
+    }
+
+    public void init() {
+        try {
+            Files.createDirectories(root);
+        } catch (IOException e) {
+            throw new RuntimeException("Could not initialize folder for upload!");
+        }
+    }
 
     public UserLogin login(UserLogin user) {
         try (Connection conn = DB.source().getConnection();
@@ -106,15 +119,18 @@ public class UserRepo {
         return null;
     }
 
-    public Boolean handleFileUpload(String username, MultipartFile file) {
+    public Boolean handleFileUpload(MultipartFile file) { // String username,
+        System.out.println(file);
         try {
             Files.copy(file.getInputStream(), this.root.resolve(file.getOriginalFilename()));
         } catch (Exception e) {
             if (e instanceof FileAlreadyExistsException) {
+                System.out.println("err");
                 throw new RuntimeException("A file of that name already exists.");
             }
             throw new RuntimeException(e.getMessage());
         }
+        System.out.println("uspesno");
         return true;
     }
 

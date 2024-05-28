@@ -22,11 +22,10 @@ export class RegisterComponent {
     if (this.file) {
       //OBSERVABLE, NAPRAVI DA OSLUSKUJE !!!!! i da vrati potvrdu kad zavrsi.
       let upload = this.registerService.uploadImage(this.myUser.username, this.file);
-      alert(upload)
+      let reg = this.registerService.register(this.myUser, this.file)
 
     }
     else {
-      alert(this.file)
     }
 
     // if (form.invalid) {
@@ -71,7 +70,7 @@ export class RegisterComponent {
   getFile(event: any) {
     //this.file = document.getElementById('imageUpload') as HTMLImageElement
     this.file = event.target.files
-    alert(this.file)
+
   }
 
   //Only JPG/PNG formats are supported. Minimum size is 100x100px and maximum size is 300x300px.
