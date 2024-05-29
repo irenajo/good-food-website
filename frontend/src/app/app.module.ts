@@ -10,6 +10,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { UserNavbarComponent } from './user-navbar/user-navbar.component';
 import { UserProfilePageComponent } from './user-profile-page/user-profile-page.component';
 import { RestaurantsAllComponent } from './restaurants-all/restaurants-all.component';
+import { CanvasRestaurantComponent } from './canvas-restaurant/canvas-restaurant.component';
+import { ReservationsComponent } from './reservations/reservations.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { RestaurantsAllComponent } from './restaurants-all/restaurants-all.compo
     RegisterComponent,
     UserNavbarComponent,
     UserProfilePageComponent,
-    RestaurantsAllComponent
+    RestaurantsAllComponent,
+    CanvasRestaurantComponent,
+    ReservationsComponent
   ],
   imports: [
     BrowserModule,

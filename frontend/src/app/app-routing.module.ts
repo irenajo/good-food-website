@@ -4,12 +4,14 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { UserProfilePageComponent } from './user-profile-page/user-profile-page.component';
 import { RestaurantsAllComponent } from './restaurants-all/restaurants-all.component';
+import { ReservationsComponent } from './reservations/reservations.component';
 
 const routes: Routes = [
   { path: "login", component: LoginComponent },
   { path: "register", component: RegisterComponent },
-  { path: "profile", component:UserProfilePageComponent},
-  {path: "restaurants", component:RestaurantsAllComponent}
+  { path: "profile", component: UserProfilePageComponent },
+  { path: "restaurants", component: RestaurantsAllComponent },
+  { path: "reservations", component: ReservationsComponent }
 ];
 
 @NgModule({

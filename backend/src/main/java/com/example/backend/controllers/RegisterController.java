@@ -21,7 +21,7 @@ import com.example.backend.models.UserLogin;
 
 @RestController
 @RequestMapping("/register")
-@CrossOrigin(origins = "http://localhost:8080")
+@CrossOrigin(origins = "http://localhost:4200/")
 public class RegisterController {
     private UserRepo userRepo = new UserRepo();
 
@@ -39,17 +39,18 @@ public class RegisterController {
 
     // @PostMapping("/hello")
     // public void postMethodName(@RequestParam("username") String username) {
-    //     System.out.println("hello");
-    //     // TODO: test
-    //     return;
+    // System.out.println("hello");
+    // // TODO: test
+    // return;
     // }
 
     @PostMapping("/hello")
     public void postMethodName(@RequestBody Map<String, String> payload) {
-    String username = payload.get("username");
-    System.out.println("hello " + username);
-    // TODO: test
-}
+        String username = payload.get("username");
+        System.out.println("hello " + username);
+        // TODO: test
+    }
+
     // @RequestParam("username") String username,
     @PostMapping("/uploadImage")
     public ResponseEntity<ResponseMessage> handleFileUpload(@RequestParam("username") String username,

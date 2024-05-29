@@ -6,6 +6,10 @@ restaurants-all:
 	- dodati ngIf za prikazivanje zvezdica restorana, ako je neki korisnik ulogovan.
 
 
+canvas:
+	- mouse down crtanje : pitaj luku mozda?
+
+
 GENERAL:
 [t] implement bootstrap
 
