@@ -53,6 +53,7 @@ public class RegisterController {
 
     // @RequestParam("username") String username,
     @PostMapping("/uploadImage")
+    @CrossOrigin(origins = "http://localhost:4200")
     public ResponseEntity<ResponseMessage> handleFileUpload(@RequestParam("username") String username,
             @RequestParam("profilePicture") MultipartFile file) {
         String message = "";

@@ -1,5 +1,13 @@
-TODO
+# TODO
 
+1. napraviti novi back u express-u: sacuvati logiku i re-implementirati je u javascriptu
+2. napraviti mongodb bazu za korisnike i razmisliti kako cuvati slike!
+3. zatim cemo videti dalje...
+
+
+logout:
+	- ulogovan korisnik u local-storage
+	- logout prazni storage i vraca na pocetnu stranicu (koja vodi samo na login i register dugme)
 restaurants-all:
 	- napraviti da link ime restorana nekako vodi na stranicu restorana!
 	- dodati trenutno ulogovanog korisnika (localStorage)

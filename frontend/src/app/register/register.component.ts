@@ -21,9 +21,11 @@ export class RegisterComponent {
     this.registerService.hello();
     if (this.file) {
       //OBSERVABLE, NAPRAVI DA OSLUSKUJE !!!!! i da vrati potvrdu kad zavrsi.
-      let upload = this.registerService.uploadImage(this.myUser.username, this.file);
-
+      let upload = this.registerService.uploadImage(this.myUser.username, this.file).subscribe((res) => {
+        alert(res)
+        alert("MA ALLOOOO")
         alert(upload)
+      })
       //let reg = this.registerService.register(this.myUser, this.file)
     }
     else {
@@ -70,7 +72,11 @@ export class RegisterComponent {
 
   getFile(event: any) {
     //this.file = document.getElementById('imageUpload') as HTMLImageElement
-    this.file = event.target.files
+    // this.file = event.target.files
+    const input = event.target as HTMLInputElement;
+    if (input.files && input.files.length > 0) {
+      this.file = input.files[0];
+    }
 
   }
 

@@ -11,6 +11,10 @@ public class UserLogin {
         this.type = type;
     }
 
+    public UserLogin() {
+
+    }
+
     public String getUsername() {
         return username;
     }

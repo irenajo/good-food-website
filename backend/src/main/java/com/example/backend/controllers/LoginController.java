@@ -13,6 +13,7 @@ import com.example.backend.models.UserLogin;
 @RequestMapping("/login")
 @CrossOrigin(origins = "http://localhost:4200")
 public class LoginController {
+    private UserRepo userRepo = new UserRepo();
 
     // @GetMapping("/dohvati/{username}/{idAkt}")
     // public boolean postojiPrijava(@PathVariable String username, @PathVariable
@@ -22,7 +23,7 @@ public class LoginController {
 
     @PostMapping("/login")
     public UserLogin login(@RequestBody UserLogin user) {
-        return new UserRepo().login(user);
+        return userRepo.login(user);
     }
 
 }

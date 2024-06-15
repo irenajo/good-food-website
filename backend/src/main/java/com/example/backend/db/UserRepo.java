@@ -119,14 +119,15 @@ public class UserRepo {
         return null;
     }
 
-    //Maybe make this private, so nobody can just upload files at will to an unexisting account.
-    public Boolean handleFileUpload(String username, MultipartFile file) { 
+    // Maybe make this private, so nobody can just upload files at will to an
+    // unexisting account.
+    public Boolean handleFileUpload(String username, MultipartFile file) {
         int queryReturn = 0;
         String query = "insert into images(username,path) values(?,?)";
         Path relativePath = this.root.resolve(file.getOriginalFilename());
 
         try (Connection conn = DB.source().getConnection();
-        PreparedStatement stmt = conn.prepareStatement(query)){
+                PreparedStatement stmt = conn.prepareStatement(query)) {
             Files.copy(file.getInputStream(), relativePath);
             stmt.setString(1, username);
             stmt.setString(2, relativePath.toString());
